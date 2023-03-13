@@ -6,5 +6,5 @@ class ReportDownloaderPipeline(FilesPipeline):
         return Request(item['durl'], meta={'title':item['title']})
 
     def file_path(self, request, response=None, info=None):
-        name = request.meta['title']
+        name = request.meta['title'].replace(':','')
         return name
